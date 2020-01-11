@@ -1,5 +1,7 @@
 - hosts: all
-  # connection: local
+  vars:
+    user_email: user@example.edu
+
   tasks:
 
     - name: import Microsoft GPG key
@@ -32,7 +34,7 @@
       git_config:
         name: user.email
         scope: global
-        value: 'jwmanes2@ncsu.edu'
+        value: '{{ user_email }}'
 
     - name: install vscode
       package:
